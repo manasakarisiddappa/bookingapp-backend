@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 const hotelRouter = require("./routes/hotel.router");
 const hotelDataAddedToDBRouter = require("./routes/dataimport.router");
@@ -15,6 +16,7 @@ const app = express();
 
 const PORT = 3500;
 
+app.use("cors");
 app.use(express.json());
 connectDB();
 app.get("/", (req, res) => {
