@@ -9,6 +9,7 @@ const categoryRouter = require("./routes/category.router");
 const singleHotelRouter = require("./routes/singlehotel.router");
 const authRouter = require("./routes/auth.router");
 const wishlistRouter = require("./routes/wishlist.router");
+const removeduplicated = require("./routes/removeduplicated.router");
 
 const connectDB = require("./config/dbconfig");
 
@@ -31,6 +32,7 @@ app.use("/api/category", categoryRouter);
 app.use("/api/hotels", singleHotelRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/wishlist", wishlistRouter);
+app.use("/api", removeduplicated);
 
 mongoose.connection.once("open", () => {
   console.log("Connected to DB");
